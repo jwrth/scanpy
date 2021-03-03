@@ -309,7 +309,7 @@ def embedding(
                 **kwargs,
             )
         else:
-
+            print("here I am again")
             scatter = (
                 partial(ax.scatter, s=size, plotnonfinite=True)
                 if scale_factor is None
@@ -340,7 +340,6 @@ def embedding(
 
                 # remove alpha for outline
                 alpha = kwargs.pop('alpha') if 'alpha' in kwargs else None
-
                 ax.scatter(
                     _data_points[:, 0],
                     _data_points[:, 1],
@@ -362,10 +361,11 @@ def embedding(
                 # if user did not set alpha, set alpha to 0.7
                 kwargs['alpha'] = 0.7 if alpha is None else alpha
 
+            print("hello")
             cax = scatter(
                 _data_points[:, 0],
-                _data_points[:, 1],
-                marker=".",
+                _data_points[:, 1], 
+                marker="s",
                 c=color_vector,
                 rasterized=settings._vector_friendly,
                 **kwargs,
@@ -842,6 +842,7 @@ def spatial(
         Tutorial on spatial analysis.
     """
     # get default image params if available
+    print("here I am")
     library_id, spatial_data = _check_spatial_data(adata.uns, library_id)
     img, img_key = _check_img(spatial_data, img, img_key, bw=bw)
     spot_size = _check_spot_size(spatial_data, spot_size)
